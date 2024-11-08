@@ -56,7 +56,7 @@ const searchBtn = document.querySelector(".search button");
 
 async function checkWeather(city) {
     try {
-        /*Data fetching and waits for it to come back*/
+        /*Data fetching and waiting for it to come back*/
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         /*If 404*/
         if (response.status == 404) {
@@ -74,7 +74,7 @@ async function checkWeather(city) {
             document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
             console.log(data.weather[0].main);
             
-            //Update weather icon
+            //Update weather icons
             switch (data.weather[0].main) {
                 case "Clouds":
                     weatherIcon.src = "images/clouds.png";
@@ -94,7 +94,7 @@ async function checkWeather(city) {
                 case "Clear":
                     weatherIcon.src = "images/Clear.png";
                     break;
-                // Add more weather conditions here
+                // For adding more weather conditions
                 default:
                     weatherIcon.src = "images/default.png";
                     break;
